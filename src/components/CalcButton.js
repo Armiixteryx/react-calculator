@@ -5,18 +5,18 @@ const btnStyle = {
   height: '3em',
 }
 
-const onTextClick = (e) => {
-  console.log(e.target.textContent);
-}
-
-const onIconClick = (e) => {
-  console.log(e.target.title);
-}
-
 const CalcButton = (props) => {
   const btnContent = () => (
     <ButtonContent content={<Text content={props.content} size="larger" weight="light" />} />
   );
+  
+  const onTextClick = (e) => {
+    props.actionHandler(e.target.textContent);
+  }
+
+  const onIconClick = (e) => {
+    props.actionHandler(e.target.title);
+  }
   
   return (
     <Flex.Item size="size.quarter">

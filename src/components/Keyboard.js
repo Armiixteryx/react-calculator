@@ -2,35 +2,35 @@ import React from 'react';
 import { ArrowLeftIcon, Flex } from '@fluentui/react-northstar';
 import CalcButton from './CalcButton';
 
-const Keyboard = () => {
+const Keyboard = (props) => {
   return (
     <Flex hAlign="center" vAlign="center" wrap>
     
-      <CalcButton content="(" />
-      <CalcButton content=")" />
-      <CalcButton content="C" />
-      <CalcButton icon={<ArrowLeftIcon />} iconOnly title="Delete" />
+      <CalcButton content="(" actionHandler={props.actionHandler} />
+      <CalcButton content=")" actionHandler={props.actionHandler} />
+      <CalcButton content="C" actionHandler={props.actionHandler} />
+      <CalcButton icon={<ArrowLeftIcon />} iconOnly title="Delete" actionHandler={props.actionHandler} />
       
       
-      <CalcButton content="7" />
-      <CalcButton content="8" />
-      <CalcButton content="9" />
-      <CalcButton content="÷" />
+      <CalcButton content="7" actionHandler={props.actionHandler} />
+      <CalcButton content="8" actionHandler={props.actionHandler} />
+      <CalcButton content="9" actionHandler={props.actionHandler} />
+      <CalcButton content="÷" actionHandler={props.actionHandler} />
       
-      <CalcButton content="4" />
-      <CalcButton content="5" />
-      <CalcButton content="6" />
-      <CalcButton content="x" />
+      <CalcButton content="4" actionHandler={props.actionHandler} />
+      <CalcButton content="5" actionHandler={props.actionHandler} />
+      <CalcButton content="6" actionHandler={props.actionHandler} />
+      <CalcButton content="x" actionHandler={props.actionHandler} />
       
-      <CalcButton content="1" />
-      <CalcButton content="2" />
-      <CalcButton content="3" />
-      <CalcButton content="-" />
+      <CalcButton content="1" actionHandler={props.actionHandler} />
+      <CalcButton content="2" actionHandler={props.actionHandler} />
+      <CalcButton content="3" actionHandler={props.actionHandler} />
+      <CalcButton content="-" actionHandler={props.actionHandler} />
       
-      <CalcButton content="." />
-      <CalcButton content="0" />
-      <CalcButton content="=" />
-      <CalcButton content="+" />
+      <CalcButton content="." actionHandler={props.actionHandler} />
+      <CalcButton content="0" actionHandler={props.actionHandler} />
+      <CalcButton content="=" actionHandler={props.actionHandler} />
+      <CalcButton content="+" actionHandler={props.actionHandler} />
     </Flex>
   );
 }

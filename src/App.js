@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import { Header } from '@fluentui/react-northstar';
@@ -12,11 +12,32 @@ const styles = {
 }
 
 function App() {
+  const [textDisplay, setTextDisplay] = useState('0');
+  
+  const operator = (btn) => {
+    if (btn === '=') {
+      //Calculate
+    } else if (btn === 'Delete') {
+      //Delete one char from display
+      setTextDisplay( (prevText) => prevText.slice(0, prevText.length - 1) );
+    } else if (btn === 'C') {
+      //Clean display
+      setTextDisplay('0');
+    } else {
+      //Add to display
+      if (textDisplay === '0') {
+        setTextDisplay(btn);
+      } else {
+        setTextDisplay( (prevText) => prevText.concat(btn) );
+      }
+    }
+  }
+  
   return (
     <div style={styles}>
       <Header align='center' content='SIMPLE CALCULATOR' />
-      <Display textDisplay="Display" />
-      <Keyboard />
+      <Display textDisplay={textDisplay} />
+      <Keyboard actionHandler={operator} />
     </div>
   );
 }
