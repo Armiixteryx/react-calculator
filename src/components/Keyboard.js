@@ -4,7 +4,7 @@ import CalcButton from './CalcButton';
 
 const Keyboard = () => {
   return (
-    <Flex hAlign="center" vAlign="center" wrap debug>
+    <Flex hAlign="center" vAlign="center" wrap>
     
       <CalcButton content="(" />
       <CalcButton content=")" />
