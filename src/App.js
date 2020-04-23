@@ -13,22 +13,38 @@ const styles = {
 
 function App() {
   const [textDisplay, setTextDisplay] = useState('0');
+  const [usedDot, setUsedDot] = useState(false);
   
   const operator = (btn) => {
     if (btn === '=') {
       //Calculate
     } else if (btn === 'Delete') {
       //Delete one char from display
-      setTextDisplay( (prevText) => prevText.slice(0, prevText.length - 1) );
+
+      setTextDisplay(prevText => { 
+        //Check if char is dot
+        if (prevText.endsWith('.')) {
+          setUsedDot(false);
+        }
+
+        //Delete char
+        return prevText.slice(0, prevText.length - 1);
+      });
     } else if (btn === 'C') {
-      //Clean display
-      setTextDisplay('0');
-    } else {
+      //Default values
+      setTextDisplay('0');    
+      setUsedDot(false);
+    } else if (btn === '.') {
+      if (!usedDot) {
+        setTextDisplay(prevText => prevText.concat(btn));
+        setUsedDot(true);
+      }
+    } else { 
       //Add to display
       if (textDisplay === '0') {
         setTextDisplay(btn);
       } else {
-        setTextDisplay( (prevText) => prevText.concat(btn) );
+        setTextDisplay(prevText => prevText.concat(btn));
       }
     }
   }
