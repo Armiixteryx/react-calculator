@@ -17,12 +17,18 @@ function App() {
   const [textDisplay, setTextDisplay] = useState('0');
   const [usedDot, setUsedDot] = useState(false);
   
-  const operator = (btn) => {
+  const operator = btn => {
     if (btn === '=') {
-      const result = evaluate(textDisplay).toString();
+      let result;
+
+      try {
+        result = evaluate(textDisplay).toString();
       
-      if (result.search(".") !== -1)
-        setUsedDot(true);
+        if (result.search(".") !== -1)
+          setUsedDot(true);
+      } catch {
+        result = "ERROR";
+      }
 
       setTextDisplay(result);
     } else if (btn === 'Delete') {
