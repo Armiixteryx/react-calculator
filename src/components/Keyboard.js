@@ -15,12 +15,12 @@ const Keyboard = (props) => {
       <CalcButton content="7" actionHandler={props.actionHandler} />
       <CalcButton content="8" actionHandler={props.actionHandler} />
       <CalcButton content="9" actionHandler={props.actionHandler} />
-      <CalcButton content="÷" actionHandler={props.actionHandler} />
+      <CalcButton content="/" actionHandler={props.actionHandler} />
       
       <CalcButton content="4" actionHandler={props.actionHandler} />
       <CalcButton content="5" actionHandler={props.actionHandler} />
       <CalcButton content="6" actionHandler={props.actionHandler} />
-      <CalcButton content="x" actionHandler={props.actionHandler} />
+      <CalcButton content="*" actionHandler={props.actionHandler} />
       
       <CalcButton content="1" actionHandler={props.actionHandler} />
       <CalcButton content="2" actionHandler={props.actionHandler} />

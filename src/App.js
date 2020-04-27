@@ -6,6 +6,8 @@ import { Header } from '@fluentui/react-northstar';
 import Display from './components/Display';
 import Keyboard from './components/Keyboard';
 
+import { evaluate } from 'mathjs';
+
 const styles = {
   width: '500px',
   margin: '0 auto',
@@ -17,7 +19,12 @@ function App() {
   
   const operator = (btn) => {
     if (btn === '=') {
-      //Calculate
+      const result = evaluate(textDisplay).toString();
+      
+      if (result.search(".") !== -1)
+        setUsedDot(true);
+
+      setTextDisplay(result);
     } else if (btn === 'Delete') {
       //Delete one char from display
 
